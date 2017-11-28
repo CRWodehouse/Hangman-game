@@ -1,0 +1,83 @@
+<!DOCTYPE>
+<html lang=en-us>
+<head>
+  <title> Hangman </title>
+  <style> </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Press any key to get Started!</h1>
+    <h2>Wins</h2>
+    <p id="numberWins">
+    <h2>Current Word</h2>
+    <p id="currentWord">
+     
+  </div>
+
+  
+  
+  
+<script type="text/javascript">  
+
+  // wordbank of correct guesses // Default Scoreboard
+var myHangman = {
+    wordBank : ["DarthVader", "LukeSkywalker", "Chewbacca", "R2D2", "JarJarBinks"],
+    currentWord : [], // current word for the user to guess
+    dashedWord : [], // current word as underscore on the screen
+    score : 0,
+    guessesRemaining : 10, // 10 guesses that user will have
+    lettersGuessed : [],
+    currentWord : function() {
+      var pickedWord = wordBank[Math.floor(Math.random()*4)];
+      console.log(pickedWord);
+  	return pickedWord;
+    }
+ } 
+  
+
+// press a key to start a game == // restart (default state)
+document.onkeyup = function(event) {
+                var letter = event.key
+                 console.log(letter);
+  
+}
+
+// some lines representing masked words
+
+function maskedWord(word) {
+ var splitWord = word.split("");  
+ var maskedWord = [];
+ for (var i = 0; i < word.length; i++){
+ maskedWord[i].push("_");
+}
+myHangman.dashedWord = maskedWord;
+
+}
+
+
+// Decrement guesses if incorrect letter
+
+
+
+// Have a log of letters that were guessed wrong, in that round          
+
+
+
+// Increment wins when the word is correctly guessed
+function updateWins(wordString) {
+ if (currentWord.join("") === wordString.join("")) {
+ 	myHangman.score++;
+ }
+
+}
+  
+// If correct guess, reveal letter guess in the original word
+ function displayDashedWord() {
+   var currentWord = document.getElementByID("currentWord");
+   currentWord.innerHTML = myHangman.dashedWord;
+ }
+  
+  
+</script>  
+</body>
+</html>
